@@ -1,0 +1,5 @@
+.countdown {
+    -fx-font-size: 6em;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}

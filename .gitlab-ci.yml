@@ -1,0 +1,6 @@
+include:
+  - template: Code-Quality.gitlab-ci.yml
+
+test:
+  script:
+    - echo "Running test phase"
