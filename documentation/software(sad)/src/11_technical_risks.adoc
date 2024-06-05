@@ -1,0 +1,24 @@
+[[section-technical-risks]]
+== Risiken und technische Schulden
+
+
+[cols="e,e,e,e,e,e" options="header"]
+|===
+|Risk description|Effect on quality |Effect on costs |Effect on time |Risk indicator | Countermeasure
+
+|Softwarebugs|3|0|2|30%|Unit Tests schreiben und Git-Konventionen einhalten: Eigene Branches, Revievs...
+
+|Veraltete Libraries|2|0|2|10%|Regelmässige Updates und Überprüfung
+
+|Unzureichende Testabdeckung|3|3|2|40%| Ausbau der automatisierten Testabdeckung und kontinuierliche Integration
+
+|Überhitzung|2|1|2|5%| Für ausreichend Belüftung sorgen mithilfe von Lufteinschlüssen (Spalten im Holz)
+
+|Designprobleme|2|0|1|20%| Design-Reviews und Feedback
+
+|Schäden an GPIO-Pins|3|2|2|10%|Vorsichtig beim Anschliessen sein & maximalen Strom nicht überschreiten
+
+|Fehlende Ressourcen|2|2|2|10%|Ressourcenplanung und Backup-Pläne erstellen.
+
+|Hardware geht kaputt|3|3|1|Dokumentieren, wo und wie Hardware ersetzt werden kann.
+|===

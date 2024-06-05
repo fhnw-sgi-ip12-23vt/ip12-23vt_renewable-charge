@@ -1,0 +1,41 @@
+[[section-quality-scenarios]]
+== Qualitätsanforderungen
+[cols="e,e,e,e" options="header"]
+|===
+Nummer|Qualitätsziel|Priorität|Beispiel
+
+|Qz01|Wartbarkeit|1|Die Spielparameter müssen innerhalb von 5 Minuten über das app.properties File angepasst werden können.
+
+|Qz01.1|Wartbarkeit - Lesbarkeit des Codes|1|Klare und konsistente Benennung von Variablen, Funktionen..., Kommentare und Dokumentation (insbesondere komplexe Algorithmen und Logiken, Doku hilft, die Funktionalität & Nutzung zu verstehen)
+
+|Qz01.2|Wartbarkeit - Modularität|1|Separation of Concerns, Wiederverwendbarkeit, Kapselung
+
+|Qz01.3|Wartbarkeit - Testbarkeit|1|Automatisierte Tests, Mocking und Stubbing (Möglichkeit, Teile des Systems zu isolieren & testen)
+
+|Qz01.4|Wartbarkeit - Einhaltung von Standards & Best Practices|1|Coding-Standards (bessere Konsistenz & Lesbarkeit),Refactoring
+
+|Qz01.5|Wartbarkeit - Dokumentation & Wissenstransfer|1|Technische Dokumentation einschliesslich Architekturbeschreibung erleichtert die Wartung
+
+|Qz01.6|Wartbarkeit - Code-Reviews und Pair Programming|1|Regelmässige Code-Reviews (Fehler frühzeitig erkennen) & Pair Programming (fördert das Teilen von Wissen & verbessert die Codequalität)
+|===
+
+[cols="e,e,e,e" options="header"]
+|===
+Nummer|Qualitätsziel|Priorität|Beispiel
+
+|Qz02|Benutzerfreundlichkeit|2|Das Spiel muss selbsterklärend aufgebaut sein, das Jugendliche in der 7.-9. Klasse das Spiel innerhalb von 30'' gut genug verstehen, um es spielen zu können.
+
+|Qz02.1|Benutzerfreundlichkeit - Intuitive Bedienbarkeit|2|Konsistentes Design & Funktionalität (erleichtert Nutzung) Nutzung von bekannten Designmustern und Standards
+
+|Qz02.2|Benutzerfreundlichkeit - Fehlertoleranz|2|Fehlermeldungen, die dem Benutzer erklären was schiefgelaufen ist & wie das Problem behoben werden kann.
+
+|Qz02.3|Benutzerfreundlichkeit - Anpassbarkeit|2|Personalisierung - ermöglichen von Anpassungen
+|===
+
+[cols="e,e,e,e" options="header"]
+|===
+Nummer|Qualitätsziel|Priorität|Beispiel
+
+|Qz03|Leistungseffizienz|3|Die Software muss performant aufgebaut sein, damit eine Latenz von 200 Millisekunden nicht überschritten wird & eine schnelle Reaktionszeit hat.
+
+|Qz03.1|Leistungseffizienz - Durchsatz|3|Hoher Durchsatz - System sollte in der Lage sein, eine grosse Anzahl von Inputs zu verarbeiten

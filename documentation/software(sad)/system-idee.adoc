@@ -1,0 +1,58 @@
+= Systemidee
+
+== Kernaufgabe des Systems
+
+Die Kernaufgabe unseres Systems ist es, junge Menschen in der 7-9 Klasse auf den hohen Energieverbrauch von Elektroautos aufmerksam zu machen. Dadurch soll das System einen verantwortungsvolleren Umgang mit erneuerbaren Energien fördern.
+Das Aufladen von Elektroautos ist durch erneuerbare Energien manchmal problematisch, weil diese Energiequellen nicht immer konstant verfügbar sind. Genau das ist ein zentrales Merkmal unseres Produkts.
+
+== Kategorie von System
+
+Die Echtzeitanforderung stellt eine primäre Kategorie in unserem Projekt dar, da eine kontinuierliche und ununterbrochene Spielumgebung essenziell für die Benutzererfahrung ist. Unser Ziel ist es, eine maximale Latenz von 200 Millisekunden nicht zu überschreiten.
+
+== Wesentliche Qualitätsanforderungen
+
+- Wartbarkeit: Das System bietet eine modulare Architektur, die interne Modifikationen ermöglicht. Für Softwarewartungszwecke sind zwei USB Typ-A Schnittstellen vorgesehen, über die Geräte wie Maus und Tastatur angeschlossen werden können. Dies erlaubt den Zugriff und die Modifikation der 'app.properties'-Datei, um Spielparameter zu konfigurieren. Des Weiteren ist es vorgesehen, über diese Schnittstelle Lokalisierungen vorzunehmen und zusätzliche Fahrzeugmodelle zu implementieren.
+
+- Benutzbarkeit: Das Produkt ist intuitiv und benutzerfreundlich gestaltet. Die Spieler können das Spiel innerhalb von einer Minute verstehen und spielen.
+
+- Effizienz: Die Software soll innerhalb von 200 Millisekunden auf einen Eingriff antworten. Dies ist notwendig, um eine flüssige Benutzererfahrung zu gewährleisten.
+
+== Relevante Stakeholder
+[cols="1,1, 1, 1"]
+|===
+|Stakeholder
+|Ansprechpersonen
+|Charakreisierung und Hintergrund
+|Bedürfnisse
+
+|Jugendliche
+|Unbekannt
+|Jugendliche im Alter von etwa 14 Jahren, Sekundarschüler. Sie könnten bereits Kenntnisse über erneuerbare Energien und Elektroautos haben, dies ist jedoch nicht zwingend.
+|Sie möchten Spass haben und dabei etwas lernen.
+
+|Product Owner
+|Lucia Di Caro
+|Frau Di Caro ist für das Produkt verantwortlich. Sie hat die Hauptanforderungen definiert und die Motivation hinter dem gewünschten Endprodukt erläutert.
+|Sie möchte ein Board-Game, das Jugendlichen auf spielerische Weise die Herausforderungen von Elektroautos und das Laden mit erneuerbarem Strom näherbringt und das Bewusstsein dafür fördert.
+
+|Primeo
+|Wolfgang 
+
+TBD
+|Er möchte ein Spiel, das Jugendlichen den verantwortungsvollen Umgang mit Energie näherbringt. Primeo plant, dieses Spiel in ihrer Ausstellung zu präsentieren.
+|Ein robustes, lehrreiches und ansprechend gestaltetes Spiel, welches einfach wartbar ist.
+
+|FHNW
+|TBD
+|Hochschule für Technik. Ihr Ziel ist es, ihre Studierenden auszubilden und interessante Ausstellungen zu gestalten, die als Werbung dienen und die nächste Generation für Technik begeistern.
+|Erfolg des Projekts und Reputation der FHNW steigern.
+
+|Team Elektroauto
+|Osman Kalemci, Samuel Lenzin, Ibrahim Enes Kaymakci, Ceyhun Yakut, Baran Özdemir, Berfan Korkmaz, Emil Sezairi
+|Studierende an der FHNW. Sie möchten ein herausragendes Produkt entwickeln, das alle Stakeholder zufriedenstellt.
+|Das Team möchte die Produktziele erreichen, eine gute Note erhalten und Erfahrung sammeln.
+
+|===
+== Schnittstellen zu externen Systemen
+
+Wir haben eine in sich geschlossene Software, die keine Schnittstellen zu externen Systemen benötigt.

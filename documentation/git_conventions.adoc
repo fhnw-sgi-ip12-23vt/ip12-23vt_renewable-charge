@@ -1,0 +1,119 @@
+= Git Conventions
+
+== Verwendete Konventionen
+
+Die im Folgenden beschriebenen Konventionen wurden von https://nvie.com/posts/a-successful-git-branching-model/[Vincent Driessen] & https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13[GitHub] entnommen und angepasst.
+
+=== Versionshistorie
+
+|===
+|Version |Beschreibung |Datum |Autor
+
+|1.0
+|Fertigstellung
+|22.10.2023
+|Berfan Korkmaz
+|===
+
+=== Branches
+==== Hauptbranches
+Wir haben zwei Hauptbranches für die Entwicklung des Projektes: `main` und `development`. 
+
+Im `main` Branch ist Code enthalten, das immer einen produktionsreifen Zustand hat. Der `development` Branch hingegen widerspiegelt den Branch mit den neusten Entwicklungsänderungen für die nächste Version des Projektes. Man nennt es auch den “Integrationsbranch”. 
+
+==== Unterstützende Branches
+Es gibt drei Arten von Branches: `Feature`, `Release` und `Hotfix` Branches.
+
+===== Feature Branches
+- Holt den Code von `development`.
+- Muss wieder in `development` zurückmergen.
+- Namenskonvention: `feature-*`.
+
+Feature-Branches werden verwendet, um neue Features für die kommende oder eine weit entfernte zukünftige Version zu entwickeln. Wenn Sie mit der Entwicklung eines Features beginnen, kann es gut sein, dass die Zielversion, in die dieses Feature integriert werden soll, zu diesem Zeitpunkt noch nicht bekannt ist. Das Wesen eines Feature-Branches besteht darin, dass er so lange existiert, wie sich das Feature in der Entwicklung befindet, aber schliesslich wieder in die `development` gemerged wird (um das neue Feature definitiv in die nächste Version aufzunehmen) oder verworfen wird (im Falle eines enttäuschenden Experiments).
+
+===== Release Branches
+- Holt den Code von `development`.
+- Muss wieder in `development` und `main` zurückmergen.
+- Namenskonvention: `release-*`. 
+
+Release-Branches unterstützen die Vorbereitung einer neuen Produktionsversion. Sie ermöglichen es, in letzter Minute die Punkte zu setzen und die Punkte zu streichen. Ausserdem ermöglichen sie kleinere Fehlerbehebungen und die Vorbereitung von Metadaten für eine neue Version (Versionsnummer, Build-Daten usw.). Indem all diese Arbeiten in einem Release-Branch erledigt werden, wird der Entwicklungszweig für die nächste grosse Version freigegeben.
+
+Der Schlüsselmoment für die Abzweigung eines neuen Release-Branches von der Entwicklungsabteilung ist, wenn die Entwicklungsabteilung (fast) den gewünschten Zustand der neuen Version widerspiegelt. Zumindest alle Features, die für die zu bauende Version vorgesehen sind, müssen zu diesem Zeitpunkt in `development` zusammengeführt werden. Alle Features, die auf zukünftige Versionen abzielen, dürfen nicht - sie müssen warten, bis der Release-Branch abgebranched ist.
+
+Genau am Anfang eines Release-Branches wird der kommenden Version eine Versionsnummer zugewiesen - nicht früher. Bis zu diesem Zeitpunkt spiegelt der `development`-Branch Änderungen für die "nächste Version" wieder, aber es ist unklar, ob diese "nächste Version" letztendlich 0.3 oder 1.0 wird, bis der Release-Branch gestartet wird. Diese Entscheidung wird beim Start des Release-Branches getroffen und wird durch die Regeln des Projekts für das Versionsnummern-Bumping ausgeführt.
+
+===== Hotfix Branches
+- Holt den Code von `main`.
+- Muss wieder in `development` und `main` zurückmergen.
+- Namenskonvention: `hotfix-*`. 
+
+Die Hotfix-Branches sind den Release-Branches insofern sehr ähnlich, als sie ebenfalls der Vorbereitung einer neuen Produktionsversion dienen, wenn auch ungeplant. Sie entstehen aus der Notwendigkeit, sofort auf einen unerwünschten Zustand einer Live-Produktionsversion zu reagieren. Wenn ein kritischer Fehler in einer Produktionsversion sofort behoben werden muss, kann ein Hotfix-Branch vom entsprechenden Tag auf dem Master-Branch, der die Produktionsversion markiert, abgelegt werden.
+
+Das bedeutet, dass die Arbeit von Teammitgliedern (auf dem `development`-Branch) fortgesetzt werden kann, während eine andere Person eine schnelle Produktionsbehebung vorbereitet.
+
+=== Commits
+Die Commit-Messages müssen in diesem Format erfolgen:
+
+----
+<type>(<optional scope>): <description>
+<optional body>
+<optional footer>
+----
+
+==== Typen von Commits *
+- `feat`: Commits, die ein neues Feature beinhalten.
+- `fix`: Commits, die einen Fehler beheben.
+- `refactor`: Commits, die den Code umschreiben / umstrukturieren, jedoch kein Feature oder Fix sind.
+- `style`: Commits, die keine Auswirkungen auf die Logik haben (Leerzeichen, Formatierung, etc.).
+- `test`: Commits, die fehlende Tests hinzufüge oder bestehende Tests korrigieren.
+- `docs`: Commits, die nur die Dokumentation betreffen.
+- `build`: Commits, die Build-Komponenten wie Build-Tool, Bibliotheken, Projektversion etc. betreffen.
+- `ops`: Commits, die operative Komponenten wie Infrastruktur, Deployment, Backup etc. betreffen.
+- `chore`: Verschiedene Commits, wie z. B. die Änderung von der `.gitignore` Datei.
+
+==== Scopes (optional)
+Der Scope ist optional und liefert zusätzlichen Kontext. Beispiel:
+----
+feat(rfid reader): added a car recognition component
+----
+
+==== Breaking Changes Indikator (optional)
+Breaking Changes sollten durch ein ! vor dem : in der Betreffzeile gekennzeichnet werden, z. B. 
+----
+feat(api)!: remove status endpoint
+----
+
+==== Description *
+Die Beschreibung enthält eine prägnante Beschreibung der Änderung. 
+
+Regeln zur Beschreibung:
+- Die Beschreibung ist ein Pflichtfeld.
+- Verwende das Imperativ: “change”, nicht “changed” oder “changes”. 
+- Der erste Buchstabe muss klein sein.
+- Die Beschreibung hat kein Punkt (.) am Ende.
+
+Beispiel:
+----
+✅ style: change hello world format
+❌ style: Changes hello world format.
+----
+
+==== Body (optional)
+Der Body sollte die Motivation für die Veränderung enthalten und diese mit dem bisherigen Verhalten vergleichen.
+
+==== Footer (optional)
+Der Footer sollte alle Informationen über Breaking Changes enthalten und ist auch der Ort, um auf Issues zu verweisen, auf die sich diese Übergabe bezieht.
+
+=== Issues
+Wird bearbeitet…
+
+=== Pull- / Merge Requests
+Beim Erstellen eines neuen Merge Requests, muss in der Beschreibung das implementierte Feature folgendermassen angegeben werden: `feature-<name>`. Name ist dabei eine ganz kurze Beschreibung des implementierten Features. Beispielsweise `feature-javafx` mit der Implementierung der UI des Spiels.
+
+Zusätzlich muss in der Beschreibung ein Bezug auf die link:software(sad)/src/01_introduction_and_goals.adoc[Requirements] gesetzt werden. 
+
+Ein Merge Request darf nur dann gemerged werden, wenn es mindestens ein akzeptiertes Review eines anderen Entwicklers erhalten hat.
+
+=== Quellenverzeichnis
+- A successful Git branching model - https://nvie.com/posts/a-successful-git-branching-model/
+- GitHub - https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13

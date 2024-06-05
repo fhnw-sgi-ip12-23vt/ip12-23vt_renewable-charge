@@ -1,0 +1,98 @@
+[[section-architecture-constraints]]
+== Randbedingungen
+
+.Technische Randbedingungen
+==========================
+
+|===
+
+|*Randbedingung* | *Erläuterung*
+
+|Raspberry Pi
+
+| Die Lösung wird auf einem Raspberry Pi betrieben, Raspberry Pi 4 oder höcher.
+
+|Implementiert in Java
+
+|Entwicklung mit Java Version 17, mit den Packages https://pi4j.com/[pi4j], https://openjfx.io/[JavaFX], ``list more``
+
+|Konfigurierbar
+
+|Über das app.properties File kann das ganze System, von Anzeige Texten in verschiedenen Sprachen, bis zu Spielparameter Einstellungen konfiguriert werden.
+
+|Autostart des System
+
+|Das Spiel startet automatisch, beim Start des Raspberry Pi.
+
+|Tischgrösse
+
+|Breite 80 cm, Länge 100 cm, Höhe zwischen 60-70 cm
+
+|Strom
+
+|Es braucht einen normalen Netzanschluss, und zwei 12 V Power Supply
+
+|Dokumentation
+
+|Sie soll sauber, übersichtlich und vollständig sein.
+
+|Ladestation
+|Ladestation-Design könnte geändert werden zu Move Ladestation.
+
+|===
+
+
+.Organisatorische Randbedingungen
+==========================
+
+|===
+
+|*Randbedingung* | *Erläuterung*
+
+|Team
+
+|Berfan Korkmaz wird unterstützt von dem SAD Samuel Lenzin und den restlichen Team Kollegen.
+
+|Zeitplan
+
+|Entwicklungsbeginn des Prototypen ist am 25.11.2023, dabei wird der erste lauffähige Prototyp am 1.12.2023 fertiggestellt und dem Product-Owner vorgestellt. Bis zum Ende des Projektes wird der Prototyp Refactored und zu dem Finalen Produkt verwandelt.
+
+|Vorgehensmodell
+
+|Die Entwicklung der Lösung wird mit Agilem Software Development gemacht. Für die Dokumentierung wird arc42 verwendet. Mit diesem Dokument kann das Projekt Ergebnisse besser veranschaulicht und realisiert werden.
+
+|Entwicklungswerkzeuge
+
+|Die ersten Entwürfe werden mit dem iPad in OneNote oder auf Papier mit Stift realisiert. 
+Die Archidektur Dokumentation wird in dem arc42 Dokument abgelegt. Erstellt wird das Produkt in Java in Visual Studio Code oder InteliJ und wird auf dem Raspberry Pi beim Starten automatisch ausgeführt. ``Dokument how this will be achieved!`` 
+
+|Versionierung und Versionsverfahren
+
+|Zu Beginn wird bei der Version 0.1.0 angefangen. Der Prototype wird die Version 1.0.0 sein. Dabei wird nach dem Major, Minor, Patch verfahren vorgegangen. Für die Versionskontrolle wird Gitlab eingesetz, wobei jeder Entwickler auf seinem eigenen Branch arbeitet.
+
+|Testen
+
+|Die Software wird anhand von JUnit-Tests getested, so wie von unseren Anforderungen an das Produkt, wie Qualitätsanforderungen etc.
+
+|===
+
+.Politische Randbedingungen
+==========================
+
+|===
+
+|*Randbedingung* | *Erläuterung*
+
+|Architekturdokumentation
+
+| Die Gliederung und der Aufbau wird nach dem arc42 dokumentiert.
+
+|Sprache
+
+|Der Code wird in englischer Sprache geschrieben
+
+|Kodierrichtlinien
+
+|Die Konventionen werden dokumentiert in den https://gitlab.fhnw.ch/ip12-23vt/ip12-23vt_elektroautos/docu/-/blob/main/coding_conventions.adoc?ref_type=heads[coding_conventions.adoc] 
+
+|===

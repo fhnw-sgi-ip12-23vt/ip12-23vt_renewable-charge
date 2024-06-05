@@ -1,0 +1,42 @@
+[[section-solution-strategy]]
+== Lösungsstrategie
+
+[role="arc42help"]
+*Technologieentscheidungen*
+Renewable Charge ist als Java-Programm realisiert un zerfällt in folgende Teile
+
+* die game Engine, welche das Spiel durch Taktet und Koordiniert.
+* die Anbindung an eine grafische Benutzeroberfläche mittels JavaFX.
+* die Hardware-Clients, welche für die Kommunikation zu den Sensoren auf dem Spielbrett, wie der Button oder RFID Reader, verantwortlich sind.
+* die Spielkonfigurationen, welche aus dem app.properties File gelesen werden.
+
+Diese Abgrenzung ermöglicht es, die einzelnen Harware- und Softwareelemente auszutauschen, da die einzelnen Teile durch ein Modulares Design voneinander getrennt sind.
+Dies errleichtert auch das Testen, da einzelne Hardware Clients separat getestet werden können.
+
+*Top-Level-Zerlegung des Systems*
+Das ganze Systen wird durch das Design Pattern MVC in ein Modell-, Controller- und View-Teil getrennt, welcher für weitere Modularität und eine robust laufende Applikation sorgt.
+
+*Erreichen der Qualitätsanforderungen*
+[cols="a,a",options="header"]
+|===
+|Qualitätsziel | Massnahmen
+
+|Wartbarkeit
+|
+* Neue Auto Klassen, mit den Dazugehörigen RFID Chips können in den app.properties konfiguriert werden.
+* Die Arc42 Dokumentation macht das System verständlicher für aussenstehende Entwickler.
+* Die Modularität des Systems ermöglicht es, einzelne Teile des Systems zu ersetzen oder zu erweitern.
+
+|Benutzerfreundlichkeit
+|
+* Die GUI ist in JavaFX umgesetzt, was eine einfache und intuitive Bedienung ermöglicht.
+* Die Konfigurierbarkeit von weiteren übersetzungen und Sprachen.
+* Das Einbinden von haptischen Elementen.
+
+| Leistungseffizienz
+|
+* Durch eine effiziente Implementierung des Datenmodells. 
+|===
+
+*Organisatorische Entscheidungen*
+Durch den modularen Aufbau des Systems, können einzelne Module an verschiedene Entwickler delegiert werden. 

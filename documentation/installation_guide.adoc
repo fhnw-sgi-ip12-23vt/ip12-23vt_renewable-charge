@@ -1,0 +1,151 @@
+= Installation Guide
+
+Benötigte Hardware
+Die Dokumentation für die Hardware ist hier zu finden: 
+link:./hardware/Hardware.adoc["Hardware Dokumentation"]
+
+Benötigte Software
+Raspbian OS (empfohlen: neueste Version)
+Git
+Java Development Kit (JDK) 17 oder höher
+ 
+
+== Software Package
+Das Produkt ist auf dem link:https://gitlab.fhnw.ch/ip12-23vt/ip12-23vt_elektroautos/renewable-charge["GitLab Repository] gespeichert.
+
+=== Auf dem Rapspberry Pi installieren
+Dies ist eine Schritt für Schritt Anleitung um das RenewableCharge Spiel auf einem Raspberry Pi zu installieren.
+
+1. Das Repository auf die lokale Maschine clonen.
+2.In der Seitenliste auf Maven->RenewableChargeGame->Lifecycle-> Package klicken.
+
+== Configurieren
+In der app.properties Datei können die Hauptkonfigurationen für das Spiel erstellt und bearbeitet werden. 
+app.properties ist im folgenden Pfad zu finden: renewable-charge/src/main/resources/app.properties.
+
+Die Konfigurationen sind folgendermassen eingestellt.
+
+Zuoberst kommen die Hauptspielparameter wie ...
+Die verwendeten Sprachen müssen in dem folgenden Format konfiguriert werden: game-languages.<<Sprache-Kürzel>>.
+
+= Änderung von Bilder
+unter renewable-charge/src/main/resources/mvc/renewablecharge/images
+können Bilder von Autos (Ordner "cars"), Energiepakete (Ordner: "energypackages"), von Jahreszeit (Ordner: "seasons") und Wettertypen (Ordner: "weathertypes") jederzeit geändert werden. Empfohlene Dateitypen sind jpg oder png. 
+
+app.properties ist im folgenden Pfad zu finden: renewable-charge/src/main/resources/app.properties. 
+Hier sieht man, wie die Autos konfiguriert sind. ALlgemein wichtig ist es, dass alle Konfigurationen im app.properties ebenfalls im Configuration-File zu finden sein sollten. 
+
+Konfiguration vom Auto auf dem Bild darstellen: im app.properties werden Autos konfiguriert mit dem RFID-Reader-Chip und man erhält den Namen des Autos und wird dieser im File verwendet
+app.properties ist im folgenden Pfad zu finden: renewable-charge/src/main/resources/app.properties. 
+Hier sieht man, wie die Autos konfiguriert sind. ALlgemein wichtig ist es, dass alle Konfigurationen im app.properties ebenfalls im Configuration-File zu finden sein sollten. 
+
+
+= Konfiguration der Übersetzungen
+Die Übersetzungen für die einzelnen Sprachen müssen in separaten language.<<Sprache-Kürzel>>.properties Dateien abgespeichert werden.
+Füge die gewünschten Sprachen in folgendem Format hinzu:
+
+version=1.0
+
+# Game Settings
+LANGUAGES_SUPPORTED=de:Deutsch;en:English;fr:Franais
+TIME_BLOCKED_PER_CHARGED_KWH=0.25
+LOBBY_COUNTDOWN=1
+RACE_COUNTDOWN=3
+
+TIME_BLOCKED_PER_CHARGED_KWH
+
+Beschreibung: Gibt die Zeit in Sekunden an, die pro geladenem kWh blockiert ist.
+Wert: 0.25
+Änderung: Um die blockierte Zeit pro geladenem kWh zu ändern, passe den numerischen Wert an. Zum Beispiel, um 0,5 Stunden zu blockieren, ändere es zu: TIME_BLOCKED_PER_CHARGED_KWH=0.5
+
+RACE_COUNTDOWN
+
+Beschreibung: Legt die Countdown-Zeit in Sekunden fest, bevor ein Rennen beginnt.
+Wert: 3
+Änderung: Um die Countdown-Zeit zu ändern, passe den numerischen Wert an. Zum Beispiel, um 5 Sekunden zu setzen, ändere es zu:
+RACE_COUNTDOWN=5
+
+LOBBY_COUNTDOWN
+
+Beschreibung: Legt die Countdown-Zeit in Sekunden fest, bevor die Lobby endet und das Spiel beginnt.
+Wert: 10
+Änderung: Um die Lobby-Countdown-Zeit zu ändern, passe den numerischen Wert an. Zum Beispiel, um 15 Sekunden zu setzen, ändere es zu:
+LOBBY_COUNTDOWN=15
+
+AVERAGE_TIME_SECONDS_TILL_ENERGYPACKAGE
+
+Beschreibung: Durchschnittliche Zeit in Sekunden, bis ein Energiepaket erscheint.
+Wert: 15
+Änderung: Um diese Zeit zu ändern, passe den numerischen Wert an. Zum Beispiel, um 20 Sekunden zu setzen, ändere es zu:
+AVERAGE_TIME_SECONDS_TILL_ENERGYPACKAGE=20
+
+AVERAGE_TIME_SECONDS_TILL_WEATHER_CHANGE
+
+Beschreibung: Durchschnittliche Zeit in Sekunden, bis sich das Wetter ändert.
+Wert: 10
+Änderung: Um diese Zeit zu ändern, passe den numerischen Wert an. Zum Beispiel, um 12 Sekunden zu setzen, ändere es zu:
+AVERAGE_TIME_SECONDS_TILL_WEATHER_CHANGE=12
+
+MINIMUM_REQUIRED_PLAYERS
+
+Beschreibung: Mindestanzahl an Spielern, die benötigt wird, um ein Spiel zu starten.
+Wert: 2
+Änderung: Um die Mindestanzahl an Spielern zu ändern, passe den numerischen Wert an. Zum Beispiel, um 3 Spieler zu setzen, ändere es zu:
+MINIMUM_REQUIRED_PLAYERS=3
+
+Im src/main/resources Verzeichnis sind die Übersetzungsdateien bereits vorhanden:
+messages_de.properties:
+welcome.message=Willkommen bei RenewableCharge!
+exit.message=Möchten Sie wirklich beenden?
+
+messages_en.properties:
+welcome.message=Welcome to RenewableCharge!
+exit.message=Are you sure you want to exit?
+
+messages_fr.properties:
+properties
+welcome.message=Bienvenue à RenewableCharge!
+exit.message=Voulez-vous vraiment quitter?
+
+Im 
+
+=  Installation des Builds auf dem Raspberry Pi
+== Benötigte Software
+Voraussetzungen
+
+Raspberry Pi mit installiertem Betriebssystem (z.B. Raspberry Pi OS)
+Internetverbindung
+Terminal-Zugang (direkt oder via SSH)
+Git installiert (zum Klonen des Repositories)
+Java Development Kit (JDK 17 oder höher) installiert
+Maven installiert 
+
+=Schritt 1: System vorbereiten
+Raspberry Pi einrichten:
+
+Stelle sicher, dass Raspbian oder ein anderes unterstütztes Betriebssystem auf deinem Raspberry Pi installiert ist.
+Verbinde den Raspberry Pi mit einem Monitor, einer Tastatur und einer Maus oder stelle eine SSH-Verbindung her.
+
+=Schritt 2: Projekt von GitLab klonen
+SSH-Schlüssel einrichten (falls nicht bereits geschehen):
+Falls du das Projekt über SSH klonen möchtest, musst du sicherstellen, dass dein SSH-Schlüssel zu deinem GitLab-Konto hinzugefügt wurde. Du kannst einen neuen SSH-Schlüssel wie folgt erstellen:
+
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+Folge den Anweisungen und füge den Schlüssel zu deinem GitLab-Konto hinzu. Der öffentliche Schlüssel befindet sich in ~/.ssh/id_rsa.pub.
+git clone git@gitlab.fhnw.ch:ip12-23vt/ip12-23vt_elektroautos/docu.git
+cd docu 
+
+=Schritt 3: Build erstellen
+In der Seitenliste auf Maven -> RenewableChargeGame -> Lifecycle -> Package klicken oder im Terminal den folgenden Befehl ausführen:
+mvn clean package
+
+=Schritt 4 Anwendung starten
+Starte die Anwendung, indem du die generierte JAR-Datei ausführst:
+java -jar target/renewable-charge-1.0-SNAPSHOT.jar
+
+
+
+
+
+
+

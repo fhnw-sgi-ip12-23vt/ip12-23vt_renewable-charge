@@ -1,0 +1,38 @@
+[[section-glossary]]
+== Glossar
+
+[cols="e,2e" options="header"]
+|===
+|Begriff |Definition
+
+|Energiepaket/Strompaket
+|Bestimmte Menge an Strom, welche sich durch verschiedenen Ursprungs des Stroms (Solar-, Windenergie…) auszeichnet. Die jeweiligen Pakete sind also differenzierbar durch die Menge und des Ursprungs des Stroms im Paket.
+
+|API (Application Programming Interface)
+| Eine Schnittstelle, die es Softwareprogrammen ermöglicht, miteinander zu kommunizieren. APIs definieren Methoden und Datenstrukturen, die Entwickler verwenden können, um Funktionalitäten aus externen Anwendungen oder Services zu nutzen.
+
+|Backlog
+|Eine priorisierte Liste von Aufgaben, Funktionen und Bugs, die im Projekt erledigt werden müssen. Der Backlog wird kontinuierlich gepflegt und aktualisiert.
+
+|GUI (Graphical User Interface)
+|Eine Benutzeroberfläche, die grafische Elemente wie Fenster, Symbole und Menüs verwendet, um Benutzern die Interaktion mit Software zu ermöglichen.
+
+|Hypertext Transfer Protocol (HTTP) (für Webseite)
+|Ein Protokoll zur Übertragung von Daten über das Internet, das die Kommunikation zwischen Webbrowsern und Servern ermöglicht.
+
+|.properties
+|Eine Konfigurationsdatei in Java, die Schlüssel-Wert-Paare zur Speicherung von Einstellungen und Konfigurationsinformationen verwendet. Diese Dateien werden häufig zur Konfiguration von Anwendungen verwendet und ermöglichen eine einfache Anpassung, ohne den Quellcode ändern zu müssen.
+
+|JUnit
+|Ein Framework für das Schreiben und Ausführen von Unit-Tests in Java.
+
+|Refactoring
+|Der Prozess der Umstrukturierung von bestehendem Code, ohne dessen externes Verhalten zu ändern, um die Lesbarkeit, Wartbarkeit und Leistung zu verbessern.
+
+|Repository
+|Ein Speicherort für Softwareprojekte und deren Versionen, häufig verwendet in Verbindung mit Versionskontrollsystemen wie Git.
+
+|Unit Test
+|Ein Test, der eine einzelne Einheit oder Komponente des Codes isoliert und überprüft, um sicherzustellen, dass sie wie erwartet funktioniert.
+
+|===
