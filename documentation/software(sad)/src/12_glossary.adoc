@@ -1,9 +1,8 @@
 [[section-glossary]]
 == Glossar
-
-[cols="e,2e" options="header"]
+[cols="e,2e", options="header"]
 |===
-|Begriff |Definition
+Begriff |Definition
 
 |Energiepaket/Strompaket
 |Bestimmte Menge an Strom, welche sich durch verschiedenen Ursprungs des Stroms (Solar-, Windenergie…) auszeichnet. Die jeweiligen Pakete sind also differenzierbar durch die Menge und des Ursprungs des Stroms im Paket.

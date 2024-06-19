@@ -15,9 +15,7 @@ Die Spieler können ein Auto mit einem RFID Chip auswählen und auf einen RFID L
 *Primeo*
 Die Primeo wird das Renewable Charge Spiel via das app.properties File konfigurieren. Diese Konfigurationen beinhalten Spielparameter, wie die Durchschnittliche Paketgrösse,das Erweitern mittels weiteren Autos und Übersetzungen. 
 
-**<Diagramm und/oder Tabelle>**
 
-**<optional: Erläuterung der externen fachlichen Schnittstellen>**
 
 === Technischer Kontext
 

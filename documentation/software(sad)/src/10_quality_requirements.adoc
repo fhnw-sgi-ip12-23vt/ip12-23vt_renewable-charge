@@ -39,3 +39,12 @@ Nummer|Qualitätsziel|Priorität|Beispiel
 |Qz03|Leistungseffizienz|3|Die Software muss performant aufgebaut sein, damit eine Latenz von 200 Millisekunden nicht überschritten wird & eine schnelle Reaktionszeit hat.
 
 |Qz03.1|Leistungseffizienz - Durchsatz|3|Hoher Durchsatz - System sollte in der Lage sein, eine grosse Anzahl von Inputs zu verarbeiten
+|==
+
+
+
+
+
+
+
+

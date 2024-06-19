@@ -17,7 +17,7 @@ Das Produkt ist auf dem link:https://gitlab.fhnw.ch/ip12-23vt/ip12-23vt_elektroa
 Dies ist eine Schritt für Schritt Anleitung um das RenewableCharge Spiel auf einem Raspberry Pi zu installieren.
 
 1. Das Repository auf die lokale Maschine clonen.
-2.In der Seitenliste auf Maven->RenewableChargeGame->Lifecycle-> Package klicken.
+2. In der Seitenliste auf Maven->RenewableChargeGame->Lifecycle-> Package klicken.
 
 == Configurieren
 In der app.properties Datei können die Hauptkonfigurationen für das Spiel erstellt und bearbeitet werden. 
@@ -33,12 +33,17 @@ unter renewable-charge/src/main/resources/mvc/renewablecharge/images
 können Bilder von Autos (Ordner "cars"), Energiepakete (Ordner: "energypackages"), von Jahreszeit (Ordner: "seasons") und Wettertypen (Ordner: "weathertypes") jederzeit geändert werden. Empfohlene Dateitypen sind jpg oder png. 
 
 app.properties ist im folgenden Pfad zu finden: renewable-charge/src/main/resources/app.properties. 
-Hier sieht man, wie die Autos konfiguriert sind. ALlgemein wichtig ist es, dass alle Konfigurationen im app.properties ebenfalls im Configuration-File zu finden sein sollten. 
+Hier sieht man, wie die Autos konfiguriert sind. Allgemein wichtig ist es, dass alle Konfigurationen im app.properties ebenfalls im Configuration-File zu finden sein sollten. 
 
-Konfiguration vom Auto auf dem Bild darstellen: im app.properties werden Autos konfiguriert mit dem RFID-Reader-Chip und man erhält den Namen des Autos und wird dieser im File verwendet
+# Game Objects
+ CAR[0].name=car1
+ CAR[0].id=50EBEB1B:468446032
+ CAR[0].batteryCapacity=60000
+ CAR[0].maxRange=300
+
+Konfiguration vom Auto auf dem Bild darstellen: im app.properties werden Autos konfiguriert mit dem RFID-Reader-Chip und erhält man den Namen des Autos und dieser wird im File verwendet
 app.properties ist im folgenden Pfad zu finden: renewable-charge/src/main/resources/app.properties. 
 Hier sieht man, wie die Autos konfiguriert sind. ALlgemein wichtig ist es, dass alle Konfigurationen im app.properties ebenfalls im Configuration-File zu finden sein sollten. 
-
 
 = Konfiguration der Übersetzungen
 Die Übersetzungen für die einzelnen Sprachen müssen in separaten language.<<Sprache-Kürzel>>.properties Dateien abgespeichert werden.
@@ -47,15 +52,21 @@ Füge die gewünschten Sprachen in folgendem Format hinzu:
 version=1.0
 
 # Game Settings
-LANGUAGES_SUPPORTED=de:Deutsch;en:English;fr:Franais
-TIME_BLOCKED_PER_CHARGED_KWH=0.25
-LOBBY_COUNTDOWN=1
-RACE_COUNTDOWN=3
+ SUPPORTED_LANGUAGES=de:Deutsch;en:English;fr:Franais
+ TIME_BLOCKED_PER_CHARGED_KWH=0.65
+ RACE_COUNTDOWN=3
+ LOBBY_COUNTDOWN=15
+ GAME_DURATION=10
+ RESULT_COUNTDOWN=10
+ AVERAGE_TIME_SECONDS_TILL_ENERGYPACKAGE=3
+ AVERAGE_TIME_SECONDS_TILL_WEATHER_CHANGE=10
+ MINIMUM_REQUIRED_PLAYERS=2
+
 
 TIME_BLOCKED_PER_CHARGED_KWH
 
 Beschreibung: Gibt die Zeit in Sekunden an, die pro geladenem kWh blockiert ist.
-Wert: 0.25
+Wert: 0.65
 Änderung: Um die blockierte Zeit pro geladenem kWh zu ändern, passe den numerischen Wert an. Zum Beispiel, um 0,5 Stunden zu blockieren, ändere es zu: TIME_BLOCKED_PER_CHARGED_KWH=0.5
 
 RACE_COUNTDOWN
@@ -68,14 +79,14 @@ RACE_COUNTDOWN=5
 LOBBY_COUNTDOWN
 
 Beschreibung: Legt die Countdown-Zeit in Sekunden fest, bevor die Lobby endet und das Spiel beginnt.
-Wert: 10
-Änderung: Um die Lobby-Countdown-Zeit zu ändern, passe den numerischen Wert an. Zum Beispiel, um 15 Sekunden zu setzen, ändere es zu:
+Wert: 15
+Änderung: Um die Lobby-Countdown-Zeit zu ändern, passe den numerischen Wert an. Zum Beispiel, um 10 Sekunden zu setzen, ändere es zu:
 LOBBY_COUNTDOWN=15
 
 AVERAGE_TIME_SECONDS_TILL_ENERGYPACKAGE
 
 Beschreibung: Durchschnittliche Zeit in Sekunden, bis ein Energiepaket erscheint.
-Wert: 15
+Wert: 3
 Änderung: Um diese Zeit zu ändern, passe den numerischen Wert an. Zum Beispiel, um 20 Sekunden zu setzen, ändere es zu:
 AVERAGE_TIME_SECONDS_TILL_ENERGYPACKAGE=20
 
@@ -141,7 +152,12 @@ mvn clean package
 
 =Schritt 4 Anwendung starten
 Starte die Anwendung, indem du die generierte JAR-Datei ausführst:
-java -jar target/renewable-charge-1.0-SNAPSHOT.jar
+----
+DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority sudo -E java --module-path /opt/javafx-sdk/lib:/home/pi/deploy --add-modules javafx.controls -Dglass.platform=gtk --module ch.fhnw.elektroautos.mvc/ch.fhnw.elektroautos.mvc.renewablecharge.AppStarter
+----
+
+oder das startGame.sh auf dem Desktop ausführen. Das System ist so konfiguriert, dass das Skript automatisch beim reboot nach 10 Sekunden ausgeführt wird mit einem Cronjob.
+Der Cronjob kann mit dem Befehl `crontab -e` bearbeitet werden.
 
 
 

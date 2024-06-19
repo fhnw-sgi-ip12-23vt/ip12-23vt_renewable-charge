@@ -1,10 +1,8 @@
 [[section-technical-risks]]
 == Risiken und technische Schulden
-
-
-[cols="e,e,e,e,e,e" options="header"]
+[cols="e,e,e,e,e,e", options="header"]
 |===
-|Risk description|Effect on quality |Effect on costs |Effect on time |Risk indicator | Countermeasure
+Risk description|Effect on quality |Effect on costs |Effect on time |Risk indicator | Countermeasure
 
 |Softwarebugs|3|0|2|30%|Unit Tests schreiben und Git-Konventionen einhalten: Eigene Branches, Revievs...
 
