@@ -1,0 +1,29 @@
+.border {
+    -fx-border-color: lightgray;
+    -fx-border-radius: 5;
+}
+
+.emulator-button {
+    -fx-border-color: black;
+    -fx-border-radius: 5;
+    -fx-text-fill: white;
+}
+
+.player-info {
+    -fx-padding: 5px;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-background-radius: 5px;
+}
+
+.player-info-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+}
+
+.countdown-label {
+    -fx-font-size: 60px;
+    -fx-text-fill: white;
+    -fx-font-weight: 800;
+}

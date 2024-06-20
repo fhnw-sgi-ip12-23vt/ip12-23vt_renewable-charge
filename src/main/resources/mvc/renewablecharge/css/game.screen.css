@@ -1,0 +1,11 @@
+.stats {
+    -fx-background-color: white;
+    -fx-border-radius: 5;
+    -fx-border-color: red;
+}
+
+.countdown-label {
+    -fx-font-size: 30px;
+    -fx-text-fill: white;
+    -fx-font-weight: 800;
+}
